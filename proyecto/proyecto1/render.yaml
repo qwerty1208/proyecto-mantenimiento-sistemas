@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: restaurante-fullstack-app
+    env: python
+    buildCommand: "pip install -r requirements.txt && python -m backend.db.ejecutor_scripts"
+    startCommand: "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true

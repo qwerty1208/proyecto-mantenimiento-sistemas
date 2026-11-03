@@ -1,0 +1,108 @@
+/* 2 ➔ Body (Cuerpo / Contenido Principal) - Estándar 1-2-3 BEM */
+.body-contenedor-principal {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.body-encabezado-seccion {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.body-titulo-seccion {
+    font-size: 2rem;
+    color: var(--color-secundario);
+}
+
+.body-subtitulo-seccion {
+    color: var(--color-texto-mutado);
+    margin-top: 0.5rem;
+}
+
+.body-rejilla-platillos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Tarjeta de platillo */
+.body-tarjeta-platillo {
+    background-color: var(--color-tarjeta);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--sombra-tarjeta);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.body-tarjeta-platillo:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-flotante);
+}
+
+.body-imagen-platillo {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.body-contenido-tarjeta {
+    padding: 1.25rem;
+}
+
+.body-nombre-platillo {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.body-precio-platillo {
+    font-size: 1.1rem;
+    color: var(--color-primario);
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+/* Formulario de Login */
+.body-seccion-formulario {
+    max-width: 420px;
+    margin: 2rem auto;
+    background-color: var(--color-tarjeta);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: var(--sombra-tarjeta);
+}
+
+.body-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.body-campo-entrada {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.body-campo-entrada label {
+    font-weight: 600;
+    color: var(--color-secundario);
+    font-size: 0.9rem;
+}
+
+.body-campo-entrada input {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.body-campo-entrada input:focus {
+    border-color: var(--color-primario);
+}

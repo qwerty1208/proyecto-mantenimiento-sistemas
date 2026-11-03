@@ -1,0 +1,30 @@
+================================================================
+GUÍA RÁPIDA DEL BACKEND (LEE ESTO ANTES DE QUE QUIERAS COPIAR Y PEGAR TU CODIGO AL BACKEND)
+================================================================
+
+Para mantener el servidor estable y evitar que la base de datos en Neon PostgreSQL falle, el backend está dividido en capas estrictas. Piensa en la arquitectura del sistema como el flujo de un restaurante real:
+
+1. CONTROLADORES (Tu Zona Segura)
+- Ubicación: backend/controladores/ y main.py[cite: 1]
+- Rol: Son los Meseros. Reciben la petición del navegador web (ej. entrar a /login) y entregan la respuesta (tu archivo HTML).
+- Permisos: Aquí tienes libertad. Puedes crear nuevas rutas usando @app.get("/tu-nueva-ruta") para que el sistema encuentre y muestre tus nuevas plantillas HTML.
+
+2. SERVICIOS (Zona de Precaución)
+- Ubicación: backend/servicios/[cite: 1]
+- Rol: Son los Chefs. Reciben la orden del controlador, aplican las reglas de negocio (ej. validar si un usuario existe o si hay stock) y procesan la información.
+- Permisos: Modifica esto solo si necesitas cambiar la lógica interna de lo que hace la página tras hacer clic en un botón.
+
+3. ESQUEMAS (Zona Restringida)
+- Ubicación: backend/esquemas/[cite: 1]
+- Rol: Son la Seguridad de la Puerta. Usan Pydantic para revisar que la información que envías desde los formularios Frontend tenga el formato exacto que exige el sistema (ej. que el precio sea un número y no texto).
+- Permisos: No los modifiques a menos que acordemos agregar campos nuevos a los formularios.
+
+4. REPOSITORIOS Y DB (¡No Tocar!)
+- Ubicación: backend/repositorios/ y backend/db/[cite: 1]
+- Rol: Es el Almacén de Ingredientes. Son los únicos archivos que tienen los permisos y sentencias SQL para extraer o guardar datos en la base de datos.
+- Permisos: Estrictamente prohibido tocar. Si necesitas guardar un dato nuevo o sacar información diferente para tu diseño, avísame y yo construyo la consulta.
+   
+REGLAS DE ORO PARA EL FLUJO DE TRABAJO:
+* Ramas de Git: Nunca hagas commits directos sobre la rama 'main' de GitHub. Crea tu propia rama (ej. git checkout -b rama-frontend) para hacer todos tus experimentos y romper el código ahí. Haremos un merge cuando tu diseño esté listo.
+* Rutas Virtuales: Si creas una vista HTML nueva en la carpeta templates/, recuerda que el navegador lanzará un error 404 hasta que des de alta su ruta @app.get() correspondiente en main.py o en un controlador.
+* Estáticos: Todo tu CSS externo, JS extra e imágenes nuevas deben vivir estrictamente dentro de la carpeta static/ para que el servidor los detecte.

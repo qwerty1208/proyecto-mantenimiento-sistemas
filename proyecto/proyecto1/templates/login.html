@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Gourmet Resto</title>
+    <!-- Estilos modulares BEM con estándar 1-2-3 -->
+    <link rel="stylesheet" href="/static/css/base/variables.css">
+    <link rel="stylesheet" href="/static/css/layout/1_header.css">
+    <link rel="stylesheet" href="/static/css/components/2_body.css">
+    <link rel="stylesheet" href="/static/css/layout/3_footer.css">
+</head>
+<body>
+
+    <!-- 1 ENCABEZADO / HEADER -->
+    <header class="header-navegacion-principal 1 header-main-navigation">
+        <div class="header-contenedor-logo 1 header-logo-container">
+            <h1 class="header-titulo-marca 1 header-brand-title">Gourmet Resto</h1>
+        </div>
+        <nav class="header-menu-opciones 1 header-options-menu">
+            <a href="/" class="header-enlace-navegacion 1 header-nav-link">Menú</a>
+            <a href="/login" class="header-enlace-navegacion 1 header-nav-link header-enlace-navegacion--activo">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <!-- 2 CUERPO / CONTENIDO PRINCIPAL -->
+    <main class="body-contenedor-principal 2 body-main-container">
+        <section class="body-seccion-formulario 2 body-form-section">
+            <header class="body-encabezado-seccion 2 body-section-header">
+                <h2 class="body-titulo-seccion 2 body-section-title">Acceso al Sistema</h2>
+            </header>
+
+            <form id="formulario-login" class="body-formulario 2 body-login-form">
+                <div class="body-campo-entrada 2 body-input-field">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" required autocomplete="email" placeholder="correo@ejemplo.com">
+                </div>
+                <div class="body-campo-entrada 2 body-input-field">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" required autocomplete="current-password" placeholder="••••••••">
+                </div>
+                <boton-reutilizable texto="Ingresar" tipo="primario"></boton-reutilizable>
+            </form>
+        </section>
+    </main>
+
+    <!-- 3 PIE DE PÁGINA / FOOTER -->
+    <footer class="footer-contenedor-principal 3 footer-main-container">
+        <p class="footer-texto-derechos 3 footer-rights-text">
+            &copy; 2026 Gourmet Resto. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <!-- Módulos de JavaScript Orientados a Objetos -->
+    <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>

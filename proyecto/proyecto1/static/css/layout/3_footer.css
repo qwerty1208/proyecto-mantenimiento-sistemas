@@ -1,0 +1,8 @@
+/* 3 ➔ Footer (Pie de Página) - Estándar 1-2-3 BEM */
+.footer-contenedor-principal {
+    background-color: var(--color-secundario);
+    color: var(--color-texto-mutado);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+}

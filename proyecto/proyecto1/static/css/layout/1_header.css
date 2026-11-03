@@ -1,0 +1,27 @@
+/* 1 ➔ Header (Encabezado) - Estándar 1-2-3 BEM */
+.header-navegacion-principal {
+    background-color: var(--color-secundario);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-titulo-marca {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.header-enlace-navegacion {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.header-enlace-navegacion:hover,
+.header-enlace-navegacion--activo {
+    color: var(--color-primario);
+}

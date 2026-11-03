@@ -1,0 +1,20 @@
+{% include 'componentes/header.html' %}
+
+<!-- el include jala la carpeta de componentes el header y footer
+ ya que vas a copiar codigo puedes hacerlo sin afectar footer y header y solo
+ copiar lo del include -->
+<main class="body-contenedor-principal 2 body-main-container">
+    <section class="body-seccion-catalogo 2 body-catalog-section">
+        <header class="body-encabezado-seccion 2 body-section-header">
+            <h2 class="body-titulo-seccion 2 body-section-title">Nuestras Especialidades</h2>
+            <p class="body-subtitulo-seccion 2 body-section-subtitle">Pasa el cursor sobre un platillo para ver información nutricional</p>
+        </header>
+
+        <!-- Rejilla interactiva de platillos -->
+        <div id="contenedor-platillos" class="body-rejilla-platillos 2 body-dishes-grid">
+            <!-- Se puebla dinámicamente con JavaScript -->
+        </div>
+    </section>
+</main>
+
+{% include 'componentes/footer.html' %}

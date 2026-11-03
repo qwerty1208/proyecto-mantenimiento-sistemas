@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Componentes Reutilizables</title>
+    <!-- Importamos los estilos y componentes base -->
+    <link rel="stylesheet" href="/static/css/base/variables.css">
+    <link rel="stylesheet" href="/static/css/components/2_body.css">
+    <!-- Importación de Tailwind para pruebas rápidas en esta vista -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { padding: 2rem; max-width: 900px; margin: 0 auto; background-color: var(--color-fondo); }
+        .seccion-guia { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        h1, h2 { color: var(--color-secundario); margin-bottom: 1rem; }
+        code { background: #f3f4f6; padding: 0.5rem; border-radius: 4px; display: block; margin: 1rem 0; color: #db2777; font-weight: bold; overflow-x: auto; }
+        .nota { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; margin-top: 1rem; color: #1e3a8a; }
+        .ejemplo-caja { border: 1px dashed #cbd5e1; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Guía Rápida de Componentes para el Frontend</h1>
+    <p style="margin-bottom: 2rem;">Copia y pega estos fragmentos de código directamente en tus vistas HTML.</p>
+
+    <!-- 1. ALERTAS DE NOTIFICACIÓN -->
+    <div class="seccion-guia">
+        <h2>1. Alertas de Notificación</h2>
+        <p>Muestra mensajes de éxito o error en la pantalla.</p>
+        
+        <div class="ejemplo-caja">
+            <h3>Alerta de Éxito (Verde)</h3>
+            <code>&lt;alerta-notificacion mensaje="El platillo se guardó correctamente" tipo="exito"&gt;&lt;/alerta-notificacion&gt;</code>
+            <alerta-notificacion mensaje="El platillo se guardó correctamente" tipo="exito"></alerta-notificacion>
+        </div>
+
+        <div class="ejemplo-caja">
+            <h3>Alerta de Error (Rojo)</h3>
+            <code>&lt;alerta-notificacion mensaje="Ocurrió un error de conexión" tipo="error"&gt;&lt;/alerta-notificacion&gt;</code>
+            <alerta-notificacion mensaje="Ocurrió un error de conexión" tipo="error"></alerta-notificacion>
+        </div>
+    </div>
+
+    <!-- 2. BOTONES Y NAVEGACIÓN -->
+    <div class="seccion-guia">
+        <h2>2. Botones Reutilizables (Formularios y Enlaces)</h2>
+        <p>Puedes cambiar el <strong>texto</strong>, el <strong>tipo</strong> (primario o secundario) y agregar un <strong>enlace</strong> para que el botón te lleve a otra página.</p>
+        
+        <div class="ejemplo-caja">
+            <h3>A) Botón Normal (Para guardar datos o enviar formularios)</h3>
+            <p style="color: #64748b; font-size: 0.9rem;">No lleva el atributo 'enlace'. Se comporta como un botón nativo.</p>
+            <code>&lt;boton-reutilizable texto="Ingresar al Sistema" tipo="primario"&gt;&lt;/boton-reutilizable&gt;</code>
+            <boton-reutilizable texto="Ingresar al Sistema" tipo="primario"></boton-reutilizable>
+        </div>
+
+        <div class="ejemplo-caja">
+            <h3>B) Botón de Navegación (Para ir a otra página)</h3>
+            <p style="color: #64748b; font-size: 0.9rem;">Lleva el atributo <code>enlace="/ruta"</code>. Funciona idéntico a una etiqueta &lt;a&gt;.</p>
+            <code>&lt;boton-reutilizable texto="Ir al Dashboard" tipo="primario" enlace="/dashboard"&gt;&lt;/boton-reutilizable&gt;</code>
+            <boton-reutilizable texto="Ir al Dashboard" tipo="primario" enlace="/dashboard"></boton-reutilizable>
+        </div>
+
+        <div class="ejemplo-caja">
+            <h3>C) Botón Secundario (Gris) con Enlace</h3>
+            <code>&lt;boton-reutilizable texto="Cancelar y volver al menú" tipo="secundario" enlace="/"&gt;&lt;/boton-reutilizable&gt;</code>
+            <boton-reutilizable texto="Cancelar y volver al menú" tipo="secundario" enlace="/"></boton-reutilizable>
+        </div>
+    </div>
+
+    <!-- 3. TARJETAS Y MODALES (Automáticos) -->
+    <div class="seccion-guia">
+        <h2>3. Tarjetas de Platillos y Popovers (¡Automáticos!)</h2>
+        <p>No necesitas escribir etiquetas <code>&lt;tarjeta-platillo&gt;</code> a mano. El sistema de JavaScript ya se encarga de ir a la base de datos, dibujarlas y hacer que aparezca el Popover al pasar el cursor.</p>
+        
+        <div class="nota">
+            <strong>¿Qué debes hacer tú para que aparezcan?</strong><br><br>
+            Solo necesitas poner este contenedor vacío en tu HTML. JavaScript hará la magia inyectando las tarjetas adentro:
+            <br>
+            <code>&lt;div id="contenedor-platillos" class="body-rejilla-platillos 2 body-dishes-grid"&gt;&lt;/div&gt;</code>
+        </div>
+    </div>
+
+    <!-- Carga de la lógica que renderiza los componentes -->
+    <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
